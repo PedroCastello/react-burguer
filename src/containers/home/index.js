@@ -22,7 +22,7 @@ const App = () => {
   const history = useHistory();
 
   async function addNewOrder() {
-    const response = await axios.post("http://localhost:3002/orders", {
+    const response = await axios.post("http://localhost:3001/orders", {
       Order: inputOrder.current.value,
       ClientName: inputName.current.value,
     });
@@ -30,6 +30,8 @@ const App = () => {
     const newOrders = response.data[response.data.lenght - 1];
 
     setOrders(...orders, newOrders);
+
+    console.log(orders)
 
     history.push('/Orders')
   }
@@ -41,13 +43,13 @@ const App = () => {
         <H1>Make your order!</H1>
 
         <InputLabel>Order:</InputLabel>
-        <Input ref={inputOrder} placeholder="Your name" />
+        <Input ref={inputOrder} placeholder="Your order" />
 
         <InputLabel>Customer name:</InputLabel>
-        <Input ref={inputName} placeholder="Your age" />
+        <Input ref={inputName} placeholder="Your name" />
 
         <Button onClick={addNewOrder}>
-          Sign up <img alt="seta" src={Arrow} />
+          New order <img alt="seta" src={Arrow} />
         </Button>
       </ContainerItens>
     </Container>

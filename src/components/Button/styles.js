@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+export const Button = styled.button.attrs(props => ({
+  style: {
+    background: props.isBack ? 'rgba(255, 255, 255, 0.14)' : 'rgba(217, 56, 86, 1)',
+    border: props.isBack ? '1px solid #fff' : 'none',
+  },
+}))`
   cursor: pointer;
   border-radius: 14px;
-  background: ${ props => props.isBack ? 'transparent' : 'var(--Templates-5-Color-1, rgba(0, 0, 0, 0.8))'};
   width: 342px;
   height: 74px;
   flex-shrink: 0;
-  border: ${ props => props.isBack ? '1px solid #fff' : 'none'};
   color: #fff;
   font-size: 17px;
   font-style: normal;
@@ -26,13 +29,9 @@ export const Button = styled.button`
   &:active {
     font-size: 15px;
     opacity: 0.5;
-
-
   }
 
   img {
-    transform: ${ props => props.isBack && 'rotateY(180deg)'};
+    transform: ${props => props.isBack && 'rotateY(180deg)'};
   }
-
-  
 `;

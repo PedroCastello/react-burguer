@@ -7,7 +7,6 @@ export const H1 = styled.h1`
   text-align: center;
   font-family: Roboto;
   font-size: 34px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
 

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 
 import Button from "../../components/Button";
-import { Container, Image, User } from "./styles";
+import { Container, Image, User, OrderText } from "./styles";
 import H1 from '../../components/Title';
 import ContainerItens from "../../components/ContainerItens";
 
@@ -17,19 +17,19 @@ const Users1 = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const data = await axios.get("http://localhost:3002/users");
+      const data = await axios.get("http://localhost:3001/orders");
       const newOrders = data.data;
       setOrders(newOrders);
 
-      setOrders(newOrders);
+      console.log(newOrders)
     };
 
     fetchUsers();
   }, []);
 
-  async function deleteUser(userId) {  
-      await axios.delete(`http://localhost:3002/orders/${userId}`);
-      const newOrders = orders.filter((user) => user.id !== userId);
+  async function deleteUser(orderId) {  
+      await axios.delete(`http://localhost:3001/orders/${orderId}`);
+      const newOrders = orders.filter((order) => order.id !== orderId);
       setOrders(newOrders);
   }
 
@@ -41,14 +41,17 @@ const Users1 = () => {
   return (
     <Container>
       <Image alt="Users-image" src={Users} />
-      <ContainerItens isBlur = {true}>
-        <H1>Users</H1>
+      <ContainerItens >
+        <H1>Orders</H1>
 
         <ul>
-          {orders.map((order) => (
-            <User key={order.id}>
-              <p>{order.order}</p> <p>{order.name} </p>
-              <button onClick={() => deleteUser(order.id)}>
+          {orders.map((orders) => (
+            <User key={orders.id}>
+              <OrderText>
+              <p className="order">{orders.Order}</p> 
+              <p className="name">{orders.ClientName} </p>
+              </OrderText>
+              <button onClick={() => deleteUser(orders.id)}>
                 <img alt="Trash" src={Trash} />
               </button>
             </User>

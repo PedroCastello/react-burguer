@@ -1,8 +1,26 @@
 import styled from "styled-components";
 import Background from "../../assets/fundo.png";
 
+export const OrderText = styled.div `
+
+display:flex;
+flex-direction: column;
+gap: 40px;
+padding:10px;
+
+.order {
+    font-weight: 300; /* ou o valor desejado para o estado normal */
+  }
+
+  .name {
+    font-weight: 700;
+  }
+
+`;
+
 export const Container = styled.div`
-  background: url("${Background}");
+  background: black;
+  /* url("${Background}"); */
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -56,26 +74,29 @@ export const User = styled.li`
   justify-content: space-around;
   align-items: center;
   border-radius: 14px;
-
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 342px;
-  height: 58px;
+  /* Remova a propriedade height para permitir altura dinâmica */
+  /* height: 58px; */
 
   border: none;
   outline: none;
 
   padding-left: 25px;
+  /* Remova a duplicidade e ajuste conforme necessário */
+  /* padding: 50px; */
+  padding-right: 25px;
+
   color: #fff;
-  margin-bottom: 34px;
+  margin-bottom: 20px; /* Ajuste conforme necessário */
   margin-top: 20px;
 
-  p {
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+
+  
+ p {
+  font-size: 20px;
+ }
 
   img {
     width: 50px;
@@ -87,3 +108,4 @@ export const User = styled.li`
     cursor: pointer;
   }
 `;
+
