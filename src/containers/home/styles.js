@@ -15,6 +15,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   margin-top: 30px;
+  width: 400px;
 `;
 
 
